@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester 7</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="img-slider">
+      <div class="slide active">
+        <img src="https://image.shutterstock.com/image-photo/concept-choice-crossroads-spliting-two-600w-717943141.jpg" alt="">
+        <div class="info">
+          <h2>KKT</h2>
+		  <h5>4 SKS | TIK4010 </h5>
+          <p>Kegiatan kerja lapangan yang merupakan pengintegrasian dari pendidikan dan pengajaran, penelitian dan pengabdian kepada masyarakat oleh mahasiswa secara pragmatis, berdimensi luas melalui pendekatan interdisipliner, komprehensif, dan lintas sektoral.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src= "https://image.shutterstock.com/image-photo/smiling-teenage-student-outdoors-girl-260nw-92783773.jpg" alt="">
+        <div class="info">
+          <h2>Magang</h2>
+		  <h5>3 SKS | TIK4021 </h5>
+          <p> Pelatihan langsung untuk merasakan langsung seperti apa dunia kerja. Tujuannya tentu saja untuk mempersiapkan mereka dalam menghadapi dunia kerja setelah lulus kuliah nanti..</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://image.shutterstock.com/image-photo/hand-pulling-thesis-book-off-600w-1111469156.jpg" alt="">
+        <div class="info">
+          <h2>Seminar dan Praktek Profesional</h2>
+		  <h5>3 SKS | TIK4030 </h5>
+          <p>Penyusunan proposal penelitian skripsi kemudian dilanjutkan dengan presentasi dan diskusi di depan pembimbing serta penguji.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://image.shutterstock.com/z/stock-photo-group-of-multiethnic-designers-brainstorming-197903273.jpg" alt="">
+        <div class="info">
+          <h2>Grafika Komputer </h2>
+		  <h5>2 SKS | TIK4041 </h5>
+          <p>Pembuatan dan manipulasi gambar secara digital.</p>
+        </div>
+      </div>
+	  <div class="slide">
+        <img src="https://image.shutterstock.com/image-photo/ethics-business-concept-colorful-wooden-600w-1108182914.jpg" alt="">
+        <div class="info">
+          <h2>Etika Profesi </h2>
+		  <h5>2 SKS | TIK4051 </h5>
+          <p>dalah acuan perilaku perseorangan atau korporasi yang dianggap harus diikuti pelaku aktivitas profesional.</p>
+        </div>
+      </div>
+	   <div class="slide">
+        <img src="https://image.shutterstock.com/image-photo/man-using-phone-hands-typing-600w-1813940525.jpg" alt="">
+        <div class="info">
+          <h2>Kriptografi </h2>
+		  <h5>2 SKS | TIK4061 </h5>
+          <p>Mempelajari teknik-teknik matematika yang berhubungan dengan aspek keamanan informasi, seperti aspek kerahasiaan, keabsahan, integritas, dan autentikasi.</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+		<div class="btn"></div>
+		
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+
+  </body>
+</html>
+    

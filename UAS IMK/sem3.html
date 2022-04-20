@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester 3</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="img-slider">
+      <div class="slide active">
+        <img src="https://image.shutterstock.com/image-photo/silhouette-group-business-people-meeting-260nw-300882155.jpg" alt="">
+        <div class="info">
+          <h2>Sistem Informasi</h2>
+		  <h5>3 SKS | TIK2011 </h5>
+          <p>Menggabungkan ilmu komputer dengan bisnis dan manajemen sebuah perusahaan. </p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://image.shutterstock.com/image-photo/cloud-computing-downtown-san-francisco-600w-1704362935.jpg" alt="">
+        <div class="info">
+          <h2>Arsitektur dan Organisasi Komputer</h2>
+		  <h5>3 SKS | TIK2021 </h5>
+          <p>Membahas tentang  konsep perencanaan dan struktur operasi dasar yang ada di dalam sistem komputer.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://image.shutterstock.com/image-photo/system-engineering-concept-engineer-office-600w-1608251770.jpg" alt="">
+        <div class="info">
+          <h2>Sistem Operasi</h2>
+		  <h5>3 SKS | TIK2031 </h5>
+          <p>Menjabarkan tentang  konsep-konsep  dasar  dalam  memahami  sistem  operasi  komputer.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://image.shutterstock.com/image-vector/background-matrix-style-falling-random-600w-549148564.jpg" alt="">
+        <div class="info">
+          <h2>Struktur Data</h2>
+		  <h5>3 SKS | TIK2041 </h5>
+          <p>Membahas cara penyimpanan, penyusunan dan pengaturan data di dalam media penyimpanan komputer sehingga data tersebut dapat digunakan secara efisien.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://image.shutterstock.com/image-photo/engineer-working-on-desktop-computer-600w-1515878147.jpg" alt="">
+        <div class="info">
+          <h2>Rekayasa Perangkat Lunak</h2>
+		  <h5>3 SKS | TIK2051 </h5>
+          <p>mendalami cara-cara pengembangan perangkat lunak termasuk pembuatan, pemeliharaan, manajemen organisasi pengembangan perangkat lunak dan manajemen kualitas.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://image.shutterstock.com/image-vector/technician-data-center-room-computer-600w-1891634617.jpg" alt="">
+        <div class="info">
+          <h2>Teknologi Basis Data (+praktikum)</h2>
+		  <h5> 3 + 1 SKS | TIK2061 + TIK2071 </h5>
+          <p>Membahas informasi yang disimpan di dalam komputer secara sistematik sehingga dapat diperiksa menggunakan program komputer untuk memperoleh informasi dari basis data.</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+		<div class="btn"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+
+  </body>
+</html>
+    
